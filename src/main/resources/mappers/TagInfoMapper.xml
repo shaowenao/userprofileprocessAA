@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.swa.upp.mappers.TagInfoMapper">
+
+    <select id="getTagInfoByTaskId" resultType="com.swa.upp.beans.TagInfo">
+        select * from tag_info  where tag_task_id=#{taskId}
+    </select>
+
+    <select id="getTagInfoListWithOn" resultType="com.swa.upp.beans.TagInfo">
+       select
+          *
+      from tag_info  join task_info
+      on tag_info.tag_task_id = task_info.id
+      where task_info.task_status='1';
+    </select>
+
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.swa.upp.mappers.TaskInfoMapper">
+
+    <select id="getTaskInfoByTaskId" resultType="com.swa.upp.beans.TaskInfo">
+       select * from task_info  where id = #{id}
+    </select>
+
+    <select id="getAllTaskNeedToExecute" resultType="com.swa.upp.beans.TaskInfo">
+       select * from task_info
+    </select>
+</mapper>

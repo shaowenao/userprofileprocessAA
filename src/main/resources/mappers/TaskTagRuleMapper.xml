@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.swa.upp.mappers.TaskTagRuleMapper">
+
+    <select id="getTaskTagRuleListByTaskId" resultType="com.swa.upp.beans.TaskTagRule">
+       select
+            tr.*, tag_name as sub_tag_value
+       from task_tag_rule tr join tag_info ti
+       on sub_tag_id=ti.id
+       where  task_id=#{id}
+    </select>
+
+</mapper>
